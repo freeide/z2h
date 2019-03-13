@@ -3,8 +3,6 @@ Zero 2 Hero (NTLM Relaying &amp; Kerberos Delegation Attack)
 
 z2h is a little tool to make NTLM Relaying with Kerberos Delegation more user friendly and also launch some other tools which can be used once the attack has been successful.
 
-Here's a video of it in action https://youtu.be/_qnOfmt3SY4
-
 Requirements 
 Impacket latest version
 Ldapdomaindump
